@@ -1,0 +1,72 @@
+name: "Run UTBotJava action"
+
+on:
+  workflow_dispatch:
+    inputs:
+      pushTests:
+        description: "Push generated tests to the repository"
+        type: boolean
+        default: true
+      generatedTestsRelativeRoot:
+        description: "Relative path to the root of the tests"
+        type: string
+        default: '.utbot/test'
+      testFramework:
+        type: choice
+        options:
+          - junit4
+          - junit5
+          - testng
+        default: 'junit5'
+      generationTimeout:
+        description: "Time budget for one class (ms)"
+        type: string
+        default: '60000'
+      codegenLanguage:
+        type: choice
+        options:
+          - java
+          - kotlin
+        default: java
+      mockStrategy:
+        type: choice
+        options:
+          - 'no-mocks'
+          - 'other-packages'
+          - 'other-classes'
+        default: 'other-packages'
+      staticsMocking:
+        type: choice
+        options: 
+          - 'do-not-mock-statics'
+          - 'mock-statics'
+        default: 'mock-statics'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Java
+      uses: actions/setup-java@v2
+      with:
+        distribution: adopt
+        java-version: 8
+
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: 6.8
+
+    - name: Run UTBotJava-action
+      uses: UnitTestBot/UTBotJava-action@main
+      with:
+        pushTests: ${{ inputs.pushTests }}
+        generatedTestsRelativeRoot: ${{ inputs.generatedTestsRelativeRoot }}
+        testFramework: ${{ inputs.testFramework }}
+        generationTimeout: ${{ inputs.generationTimeout }}
+        codegenLanguage: ${{ inputs.codegenLanguage }}
+        mockStrategy: ${{ inputs.mockStrategy }}
+        staticsMocking: ${{ inputs.staticsMocking }}
