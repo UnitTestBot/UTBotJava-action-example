@@ -107,4 +107,4 @@ As you see in this case above, UTBot detected an unchecked ArrayIndexOutOfBounds
 
 Click __Show paths__ button, and you see the execution trace.
 
-📍__Note:__ You can find all these steps performed in our sample project: [UTBotJava-action-example](https://github.com/UnitTestBot/UTBotJava-action-example)
+📍__Note:__ All these steps are performed more clearly in this project, watch it above. 🙂
