@@ -1,6 +1,6 @@
 # UTBotJava-action-example
 
-To analyse the Java project with [UTBotJava-action](https://github.com/UnitTestBot/UTBotJava-action) you should do the following steps:
+To analyse the Java project with [UTBotJava-action](https://github.com/UnitTestBot/UTBotJava-action) you need to follow these simple steps:
 
 1. Apply the [UTBot gradle plugin](https://plugins.gradle.org/plugin/org.utbot.gradle.plugin) to your project:
 
@@ -91,20 +91,20 @@ jobs:
 
 ![image](https://user-images.githubusercontent.com/54814796/177161153-b04709bd-667c-4497-8007-0ac1c37b5e4a.png)
 
-4. Click __Run workflow__ and select the desired options:
+4. Click __Run workflow__ and select the needed options:
 
 ![image](https://user-images.githubusercontent.com/54814796/177161568-8d58b093-c927-4a95-86fa-774cb477c379.png)
 
-5. After completing the workflow, look at the __Security → Code Scanning Alerts__ to see the detected by errors:
+5. After the workflow is completed, look at the __Security → Code Scanning Alerts__ to find the detected errors (by the way, you won\`t find any if your code is fine 😉):
 
 ![image](https://user-images.githubusercontent.com/54814796/177162826-b54c4040-170d-48b9-a660-646ed90a671e.png)
 
-6. Investigate any alert by clicking on it:
+6. Explore any alert by clicking on it:
 
 ![image](https://user-images.githubusercontent.com/54814796/177163376-5dffd7eb-be04-4aae-b2f0-cfe86891e662.png)
 
-In this case, UTBot detected an unchecked ArrayIndexOutOfBoundsException by passing the array `[-192, -192]` to the `isSorted` method.
+As you see in this case above, UTBot detected an unchecked ArrayIndexOutOfBoundsException by passing the array `[-192, -192]` to the `isSorted` method.
 
-You can view the execution trace by clicking __Show paths__ button.
+Click __Show paths__ button, and you see the execution trace.
 
-__Note:__ All these steps are performed in our sample project: [UTBotJava-action-example](https://github.com/UnitTestBot/UTBotJava-action-example)
+📍__Note:__ All these steps are performed more clearly in this project, watch it above. 🙂
