@@ -76,7 +76,7 @@ jobs:
         gradle-version: 6.8
 
     - name: Run UTBotJava-action
-      uses: UnitTestBot/UTBotJava-action@main
+      uses: UnitTestBot/UTBotJava-action@v1
       with:
         pushTests: ${{ inputs.pushTests }}
         generatedTestsRelativeRoot: ${{ inputs.generatedTestsRelativeRoot }}
