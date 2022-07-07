@@ -1,4 +1,4 @@
-name: "Run UTBotJava-action"
+name: "Run UTBotJava action"
 
 on:
   workflow_dispatch:
